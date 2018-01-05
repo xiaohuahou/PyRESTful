@@ -21,6 +21,7 @@ schema_view = get_swagger_view(title='PyRESTful API')
 
 urlpatterns = [
     re_path(r'^$', schema_view),
+    re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     re_path(r'^v1/RBAC/', include(('RBAC.urls','RBAC'), namespace='v1')),
     path('admin/', admin.site.urls),
 ]
