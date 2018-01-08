@@ -20,8 +20,9 @@ from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='PyRESTful API')
 
 urlpatterns = [
-    re_path(r'^$', schema_view),
     re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    re_path(r'^v1/RBAC/', include(('RBAC.urls','RBAC'), namespace='v1')),
+    re_path(r'^v1/RBAC/', include(('RBAC.urls','RBAC'), namespace='rbac_v1')),
+    re_path(r'^v1/Audit/', include(('Audit.urls','Audit'), namespace='audit_v1')),
+    re_path(r'^$', schema_view),
     path('admin/', admin.site.urls),
 ]
