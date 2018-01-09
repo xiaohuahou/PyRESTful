@@ -3,9 +3,11 @@ from Audit.models import Book, Auditing
 
 class BookSerializer(serializers.HyperlinkedModelSerializer):
 
+    auditing = serializers.StringRelatedField(many=False)
+
     class Meta:
         model = Book
-        fields = ('url','title', 'chapter', 'author', 'status', 'created', 'cat', 'contract_status')
+        fields = ('url','title', 'chapter', 'auditing')
 
 class AuditingSerializer(serializers.HyperlinkedModelSerializer):
 

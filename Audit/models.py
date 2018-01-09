@@ -23,13 +23,13 @@ class Book(models.Model):
     chapter = models.IntegerField(default=0)
     author = models.CharField(max_length=100, blank=True, default='')
 
-    status = models.CharField(choices=STATUS, default=STATUS[0], max_length=100)
+    status = models.CharField(choices=STATUS, max_length=100)
     created = models.DateTimeField(auto_now_add=True)
-    cat = models.CharField(choices=CAT, max_length=100, blank=True, default=CAT[0])
+    cat = models.CharField(choices=CAT, max_length=100, blank=True)
 
-    contract_status = models.CharField(choices=CONTRACT_STATUS, default=CONTRACT_STATUS[0], max_length=100)
+    contract_status = models.CharField(choices=CONTRACT_STATUS, max_length=100)
 
-    auditing = models.OneToOneField(Auditing, on_delete=models.CASCADE)
+    auditing = models.OneToOneField(Auditing, related_name='auditing',on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('created',)
