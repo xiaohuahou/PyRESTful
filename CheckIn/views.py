@@ -8,24 +8,25 @@ import CheckIn.permissions as CPermissions
 class CheckInViewSet(viewsets.ModelViewSet):
     """
             retrieve:
-                Return a user instance.
+                Return a CheckIn instance.
 
             list:
-                Return all users, ordered by most recently joined.
+                Return all CheckIn, ordered by most recently joined.
 
             create:
-                Create a new user.
+                Create a new CheckIn.
 
             delete:
-                Remove an existing user.
+                Remove an existing CheckIn.
 
             partial_update:
                 Update one or more fields on an existing user.
 
             update:
-                Update a user.
+                Update a CheckIn.
     """
     queryset = CheckIn.objects.all()
     serializer_class = CheckInSerializer
     permission_classes = (CPermissions.CheckInPostOnly,)
+
 

@@ -5,7 +5,7 @@ class CheckIn(models.Model):
 
     appId = models.PositiveIntegerField(db_index=True)
     userId = models.CharField(max_length=50, db_index=True)
-    date = models.DateTimeField()
+    datetime = models.DateTimeField()
 
     class Meta:
-        ordering = ('appId', 'date')
+        ordering = ('appId', 'datetime')
