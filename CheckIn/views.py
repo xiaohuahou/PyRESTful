@@ -8,6 +8,9 @@ from CheckIn.schemas import CheckInSchema
 from CheckIn.filtersets import CheckInFilterSet
 import CheckIn.permissions as CPermissions
 
+from rest_framework.response import Response
+from rest_framework import status
+
 # Create your views here.
 #Filter
 class CheckInDjangoFilterBackend(DjangoFilterBackend):
@@ -47,5 +50,12 @@ class CheckInViewSet(viewsets.ModelViewSet):
         if 'datetime' not in request.data:
             request.data['datetime'] = datetime.datetime.now()
         return super(CheckInViewSet,self).create(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        #over_ride the delete
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        self.perform_destroy(instance)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
