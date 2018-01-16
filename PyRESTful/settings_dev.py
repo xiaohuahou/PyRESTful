@@ -86,7 +86,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'Terminator666@',
         'NAME': 'PyRESTful',
-        'HOST': '47.100.185.158',
+        'HOST': '127.0.0.1',
         'PORT': 3306
     }
 }
