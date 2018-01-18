@@ -1,4 +1,5 @@
 import datetime
+from dateutil import parser
 # Create your views here.
 from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
@@ -47,8 +48,7 @@ class CheckInViewSet(viewsets.ModelViewSet):
     schema = CheckInSchema()
 
     def create(self, request, *args, **kwargs):
-        if 'datetime' not in request.data:
-            request.data['datetime'] = datetime.datetime.now()
+        request.data['datetime'] = datetime.datetime.now() if 'datetime' not in request.data else parser.parse(request.data['datetime'])
         return super(CheckInViewSet,self).create(request, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):

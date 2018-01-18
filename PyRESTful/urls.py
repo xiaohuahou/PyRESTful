@@ -18,10 +18,10 @@ from django.urls import path, re_path, include
 from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
-    re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     re_path(r'^v1/', include(('CheckIn.urls','CheckIn'), namespace='checkin_v1')),
     # re_path(r'^v1/RBAC/', include(('RBAC.urls','RBAC'), namespace='rbac_v1')),
     # re_path(r'^v1/Audit/', include(('Audit.urls','Audit'), namespace='audit_v1')),
     re_path(r'^docs/', include_docs_urls(title='PyRESTful APIs')),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
 ]

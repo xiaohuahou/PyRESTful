@@ -50,6 +50,8 @@ class UserGroupPermissionTests(TestCase):
         cls.editor = User.objects.create_user(username="editor", email="test@test.com", password="test", is_staff=True)
         cls.reader = User.objects.create_user(username="reader", email="test@test.com", password="test", is_staff=True)
 
+        super(UserGroupPermissionTests, cls).setUpClass()
+
     @classmethod
     def tearDownClass(cls):
         cls.adminGroup.delete()
