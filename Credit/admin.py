@@ -1,5 +1,5 @@
 from django.contrib import admin
-from CheckIn.models import CheckIn
+from Credit.models import Credit
 
 # Register your models here.
-admin.site.register(CheckIn)
+admin.site.register(Credit)

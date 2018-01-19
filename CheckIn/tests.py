@@ -16,6 +16,7 @@ class CheckInTests(APITestCase):
     @classmethod
     def tearDownClass(cls):
         cls.admin.delete()
+        super(CheckInTests, cls).tearDownClass()
 
     def test_create_a_checkin(self):
         factory = APIRequestFactory()
