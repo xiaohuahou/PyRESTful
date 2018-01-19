@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # 'RBAC',
     # 'Audit',
     'CheckIn',
+    'Credit',
     'django_filters',
     'rest_framework',
 ]
