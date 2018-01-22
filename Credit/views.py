@@ -61,3 +61,51 @@ class CreditViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+#CreditLog Viewset here.
+from Credit.models import CreditLog
+from Credit.serializers import CreditLogSerializer
+
+class CreditLogViewSet(viewsets.ModelViewSet):
+    """
+            retrieve:
+                Return a CreditLog instance.
+
+            list:
+                Return all CreditLog, ordered by most recently joined.
+
+            create:
+                Create a new CreditLog.
+
+            delete:
+                Remove an existing CreditLog.
+
+            partial_update:
+                Update one or more fields on an existing user.
+
+            update:
+                Update a CreditLog.
+    """
+    queryset = CreditLog.objects.all()
+    serializer_class = CreditLogSerializer
+
+    permission_classes = (CPermissions.CreditPostOnly,)
+
+    filter_backends = (CreditDjangoFilterBackend,)
+    filter_fields = ('appId', 'userId')
+
+    schema = CreditSchema()
+
+    # def create(self, request, *args, **kwargs):
+    #     request.data['credit'] = request.data.get('credit', 0)
+    #     return super(CreditLogViewSet,self).create(request, *args, **kwargs)
+    #
+    # def update(self, request, *args, **kwargs):
+    #     request.data['credit'] = request.data.get('credit', 0)
+    #     return super(CreditLogViewSet, self).update(request, *args, **kwargs)
+    # #
+    # def destroy(self, request, *args, **kwargs):
+    #     #over_ride the delete
+    #     instance = self.get_object()
+    #     serializer = self.get_serializer(instance)
+    #     self.perform_destroy(instance)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)

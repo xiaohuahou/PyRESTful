@@ -96,3 +96,21 @@ class CreditTests(APITestCase):
         force_authenticate(request, user=CreditTests.admin)
         response = view(request)
         self.assertEqual(len(response.data), 3)
+
+
+class CreditLogTests(APITestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.admin = User.objects.create_user(username="creditlog_admin", email="test@test.com", password="test", is_superuser=True)
+        super(CreditLogTests, cls).setUpClass()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.admin.delete()
+        super(CreditLogTests, cls).tearDownClass()
+#
+    def test_create_a_creditlog(self):
+        pass
+
+
