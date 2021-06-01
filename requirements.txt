@@ -20,4 +20,4 @@ rest-condition==1.0.3
 simplejson==3.13.2
 six==1.11.0
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
